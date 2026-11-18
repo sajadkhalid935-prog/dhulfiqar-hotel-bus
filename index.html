@@ -2522,7 +2522,7 @@
     }
 
     /* ==========================================================================
-       7. PC-Like Full 4-Bus Schedule Layout on Phone & Responsive Login
+       7. PC-Like Full 4-Bus Schedule Layout on Phone & Responsive Desktop Windows
        ========================================================================== */
     @media screen {
       body.pc-layout-active,
@@ -2534,7 +2534,12 @@
       body.pc-layout-active .schedule-section,
       body.pc-layout-active .legend-section,
       body.pc-layout-active footer.main-footer {
-        min-width: 1260px;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+      }
+      table.schedule-table {
+        min-width: 1120px;
       }
     }
 
