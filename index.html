@@ -2069,10 +2069,95 @@
 
 
     /* ==========================================================================
-       6. Obsidian Black & Metallic Gold Theme (Matching Zulfiqar Hotel Logo)
-          مؤكد = أخضر | غير مؤكد = أحمر | متاح = زمردي هادئ على الأسود
+       6. White & Gold/Black Theme (screen only - Matching Zulfiqar Hotel Logo)
+          خلفية بيضاء نقية + تفاصيل ذهبية وأسود فخمة | مؤكد = أخضر | غير مؤكد = أحمر
        ========================================================================== */
     @media screen {
+      :root {
+        --gold-primary: #B88E26;
+        --gold-light: #8C6815;
+        --gold-bright: #C89D34;
+        --gold-deep: #7A5A10;
+        --gold-gradient: linear-gradient(135deg, #B3882A 0%, #E6C35C 42%, #C89D3C 100%);
+        --gold-gradient-soft: linear-gradient(135deg, rgba(212, 175, 55, 0.14) 0%, rgba(255, 255, 255, 0) 100%);
+        --gold-border: rgba(184, 142, 38, 0.42);
+        --gold-shadow: 0 4px 20px rgba(17, 17, 20, 0.08);
+
+        --navy-950: #F8F6F1;
+        --navy-900: #FFFFFF;
+        --navy-850: #FFFFFF;
+        --navy-800: #FFFFFF;
+        --navy-700: #F4F1EA;
+        --navy-600: #EAE4D7;
+        --navy-card: #FFFFFF;
+        --navy-glass: rgba(255, 255, 255, 0.92);
+
+        --status-confirmed: #16A34A;
+        --status-confirmed-bg: rgba(22, 163, 74, 0.12);
+        --status-confirmed-border: #16A34A;
+        --status-unregistered: #DC2626;
+        --status-unregistered-bg: rgba(220, 38, 38, 0.10);
+        --status-unregistered-border: #DC2626;
+        --status-available: #64748B;
+        --status-available-bg: #FFFFFF;
+        --status-available-border: #D6CEBC;
+
+        --text-white: #111114;
+        --text-gold: #8C6815;
+        --text-muted: #57534E;
+        --text-dim: #78716C;
+      }
+
+      body {
+        background-color: #F8F6F1;
+        background-image:
+          radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12) 0%, transparent 55%),
+          radial-gradient(circle at 100% 100%, rgba(184, 142, 38, 0.07) 0%, transparent 50%);
+        color: #111114;
+      }
+
+      /* Buttons */
+      .btn-gold {
+        background: var(--gold-gradient);
+        color: #111114;
+        font-weight: 800;
+        box-shadow: 0 4px 14px rgba(184, 142, 38, 0.28);
+      }
+      .btn-gold:hover {
+        box-shadow: 0 6px 18px rgba(184, 142, 38, 0.40);
+      }
+      .btn-navy {
+        background: #FFFFFF;
+        color: #111114;
+        border-color: rgba(184, 142, 38, 0.5);
+      }
+      .btn-navy:hover {
+        background: #FAF6EC;
+        color: #111114;
+        border-color: #B88E26;
+      }
+      .btn-danger {
+        background: #FEF2F2;
+        color: #B91C1C;
+        border-color: rgba(220, 38, 38, 0.35);
+      }
+      .btn-danger:hover {
+        background: #DC2626;
+        color: #FFFFFF;
+      }
+
+      /* Login */
+      #login-page {
+        background: #F7F5EF;
+        background-image:
+          radial-gradient(circle at 50% 18%, rgba(212, 175, 55, 0.16) 0%, transparent 60%),
+          radial-gradient(circle at 10% 90%, rgba(184, 142, 38, 0.08) 0%, transparent 40%);
+      }
+      .login-container {
+        background: #FFFFFF;
+        border: 1px solid rgba(184, 142, 38, 0.45);
+        box-shadow: 0 20px 50px rgba(17, 17, 20, 0.10);
+      }
       .hotel-emblem {
         width: 148px;
         height: 148px;
@@ -2080,18 +2165,18 @@
         padding: 0;
         border-radius: 50%;
         background: #020203;
-        border: 2px solid var(--gold-primary);
-        box-shadow: 0 0 34px rgba(212, 175, 55, 0.36), 0 0 10px rgba(243, 216, 130, 0.22);
+        border: 2.5px solid #D4AF37;
+        box-shadow: 0 8px 24px rgba(17, 17, 20, 0.18), 0 0 0 4px rgba(212, 175, 55, 0.16);
         overflow: hidden;
       }
       .brand-logo {
-        width: 56px;
-        height: 56px;
+        width: 54px;
+        height: 54px;
         padding: 0;
         border-radius: 50%;
         background: #020203;
-        border: 2px solid var(--gold-primary);
-        box-shadow: 0 0 18px rgba(212, 175, 55, 0.32);
+        border: 2px solid #D4AF37;
+        box-shadow: 0 2px 10px rgba(17, 17, 20, 0.15);
         overflow: hidden;
       }
       .hotel-logo-img {
@@ -2100,111 +2185,306 @@
         object-fit: cover;
         display: block;
       }
+      .hotel-title {
+        background: linear-gradient(135deg, #111114 0%, #7A5A10 55%, #B88E26 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: none;
+      }
+      .hotel-sub { color: #8C6815; }
+      .portal-desc { border-bottom-color: rgba(184, 142, 38, 0.25); color: #57534E; }
+      .form-control {
+        background: #FFFFFF;
+        color: #111114;
+        border-color: rgba(17, 17, 20, 0.25);
+      }
+      .form-control:focus {
+        background: #FFFFFF;
+        border-color: #B88E26;
+        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.18);
+      }
+      .login-error { background: #FEF2F2; border-color: rgba(220, 38, 38, 0.4); color: #B91C1C; }
+
+      /* Header: Crisp White with Gold & Black Accents */
       header.main-header {
-        background: linear-gradient(135deg, #070709 0%, #101013 55%, #17140D 100%);
-        border-bottom: 2px solid rgba(212, 175, 55, 0.55);
-        box-shadow: 0 6px 26px rgba(0, 0, 0, 0.72);
+        background: #FFFFFF;
+        border-bottom: 2.5px solid #D4AF37;
+        box-shadow: 0 4px 18px rgba(17, 17, 20, 0.08);
       }
+      .brand-texts h1 {
+        background: linear-gradient(135deg, #111114 0%, #8C6815 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .brand-texts p { color: #7A5A10; }
       .header-center-info {
-        background: rgba(18, 18, 22, 0.88);
-        border-color: rgba(212, 175, 55, 0.35);
+        background: #FAF7F0;
+        border-color: rgba(184, 142, 38, 0.4);
       }
+      .live-clock { color: #111114; }
+      .live-clock i { color: #B88E26; }
+      .header-center-info > span { color: rgba(184, 142, 38, 0.45) !important; }
+      .admin-toggle-btn {
+        background: #FFFFFF;
+        color: #111114;
+        border-color: rgba(17, 17, 20, 0.35);
+      }
+      .admin-toggle-btn:hover {
+        background: #FAF6EC;
+        border-color: #B88E26;
+        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.16);
+      }
+      .admin-toggle-btn.active-admin {
+        background: #ECFDF5;
+        color: #065F46;
+        border-color: #10B981;
+      }
+      .header-actions .btn-navy {
+        background: #FFFFFF;
+        color: #111114;
+        border-color: rgba(184, 142, 38, 0.55);
+      }
+      .header-actions .btn-navy:hover {
+        background: #FAF6EC;
+        color: #111114;
+        border-color: #B88E26;
+      }
+      .header-actions .btn-danger {
+        background: #FEF2F2;
+        color: #B91C1C;
+        border-color: rgba(220, 38, 38, 0.35);
+      }
+      .header-actions .btn-danger:hover {
+        background: #DC2626;
+        color: #FFFFFF;
+      }
+
+      /* Admin bar */
       #admin-bar {
-        background: linear-gradient(90deg, #09090B 0%, #19150B 50%, #09090B 100%);
-        border-bottom: 2px solid var(--gold-primary);
-        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.65);
+        background: linear-gradient(90deg, #FAF7EF 0%, #F2EBDC 50%, #FAF7EF 100%);
+        border-bottom: 2px solid #D4AF37;
+        box-shadow: 0 4px 12px rgba(17, 17, 20, 0.06);
+      }
+      .admin-badge-tag { color: #111114; }
+
+      /* Stats */
+      .stat-card {
+        background: #FFFFFF;
+        border-color: rgba(184, 142, 38, 0.32);
+        box-shadow: 0 6px 18px rgba(17, 17, 20, 0.05);
+      }
+      .stat-card:hover {
+        box-shadow: 0 8px 22px rgba(17, 17, 20, 0.10);
+        border-color: #D4AF37;
+      }
+      .stat-icon {
+        background: #FAF4E4;
+        border-color: rgba(184, 142, 38, 0.35);
+        color: #9E7823;
+      }
+      .stat-card.card-green .stat-icon { background: #DCFCE7; border-color: rgba(22, 163, 74, 0.35); color: #15803D; }
+      .stat-card.card-red .stat-icon { background: #FEE2E2; border-color: rgba(220, 38, 38, 0.35); color: #DC2626; }
+      .stat-card.card-red::after { background: #DC2626; }
+
+      /* Controls */
+      .controls-bar, .legend-bar {
+        background: #FFFFFF;
+        border-color: rgba(184, 142, 38, 0.32);
+        box-shadow: 0 4px 14px rgba(17, 17, 20, 0.05);
+      }
+      .date-nav-btn {
+        background: #FFFFFF;
+        color: #111114;
+        border-color: rgba(184, 142, 38, 0.5);
+      }
+      .date-nav-btn:hover {
+        background: #111114;
+        color: #F3D882;
+        border-color: #D4AF37;
+      }
+      .date-display-badge, .search-box input, .filter-select {
+        background: #FFFFFF;
+        color: #111114;
+        border-color: rgba(17, 17, 20, 0.25);
+      }
+      .date-display-badge input[type="date"] { color: #111114; }
+      .filter-select option, .form-select option {
+        background: #FFFFFF;
+        color: #111114;
+      }
+
+      /* Table */
+      .table-container {
+        background: #FFFFFF;
+        border-color: rgba(184, 142, 38, 0.45);
+        box-shadow: 0 10px 30px rgba(17, 17, 20, 0.07);
       }
       .schedule-table thead th,
-      thead th.col-sticky-1, thead th.col-sticky-2, thead th.col-sticky-3, thead th.col-sticky-4 {
-        background: linear-gradient(180deg, #16161B 0%, #0D0D10 100%) !important;
-        color: var(--gold-light) !important;
-        border-bottom: 2px solid var(--gold-primary) !important;
-      }
+      thead th.col-sticky-1, thead th.col-sticky-2, thead th.col-sticky-3, thead th.col-sticky-4,
       .bus-header {
-        background: linear-gradient(180deg, #18181D 0%, #0C0C0F 100%) !important;
+        background: linear-gradient(180deg, #FAF7F0 0%, #EFE8D6 100%) !important;
+        color: #111114 !important;
+        border-bottom: 2px solid #C89D3C !important;
+        border-left-color: rgba(184, 142, 38, 0.28);
       }
       .bus-badge {
         background: var(--gold-gradient);
-        color: #050506;
-        box-shadow: 0 2px 10px rgba(212, 175, 55, 0.28);
+        color: #111114;
+        box-shadow: 0 2px 6px rgba(184, 142, 38, 0.25);
       }
+      .bus-capacity-sub { color: #57534E; }
+
       tbody td.col-sticky-1, tbody td.col-sticky-2, tbody td.col-sticky-3, tbody td.col-sticky-4 {
-        background: #0A0A0D !important;
+        background: #FAF8F3 !important;
       }
-      .schedule-table tbody tr.is-today {
-        background: rgba(212, 175, 55, 0.08) !important;
+      .col-sticky-1 { box-shadow: -4px 0 10px rgba(17, 17, 20, 0.06); }
+      .col-sticky-4 { border-left-color: #C89D3C !important; }
+
+      .schedule-table tbody td {
+        border-bottom-color: rgba(184, 142, 38, 0.16);
+        border-left-color: rgba(184, 142, 38, 0.16);
       }
+      .schedule-table tbody tr:hover { background: rgba(212, 175, 55, 0.04); }
+      .schedule-table tbody tr.is-today { background: rgba(212, 175, 55, 0.08) !important; }
       .schedule-table tbody tr.is-today td.col-sticky-1 {
-        background: #17140C !important;
-        border-right: 4px solid var(--gold-bright) !important;
+        background: #F5EBD0 !important;
+        border-right: 4px solid #B88E26 !important;
       }
-      .today-tag {
-        background: var(--gold-gradient);
-        color: #050506;
-      }
+      .today-tag { background: #111114; color: #F3D882; }
+
+      /* Available cell: plain crisp white */
       .cell-available {
-        background: rgba(16, 185, 129, 0.09);
-        border: 1px dashed rgba(16, 185, 129, 0.32);
+        background: #FFFFFF;
+        border: 1px dashed #D6CEBC;
       }
       .cell-available:hover {
-        background: rgba(16, 185, 129, 0.18);
-        border-color: #34D399;
+        background: #FAF6EC;
+        border-color: #B88E26;
         border-style: solid;
       }
-      .booking-card.status-confirmed {
-        background: linear-gradient(145deg, rgba(16, 185, 129, 0.22), rgba(14, 14, 17, 0.97));
-        border-color: #10B981;
+      .available-badge { color: #64748B; }
+      .available-pulse { background: #CBD5E1; box-shadow: none; }
+      .available-action-hint { color: #8C6815; }
+
+      /* Booking cards: confirmed = green/white, unconfirmed = red/white */
+      .booking-card { box-shadow: 0 3px 10px rgba(17, 17, 20, 0.08); }
+      .booking-card:hover { box-shadow: 0 6px 16px rgba(17, 17, 20, 0.15); }
+      .booking-card.status-confirmed { background: linear-gradient(145deg, #DCFCE7 0%, #FFFFFF 75%); border-color: #16A34A; }
+      .booking-card.status-unregistered { background: linear-gradient(145deg, #FEE2E2 0%, #FFFFFF 75%); border-color: #DC2626; }
+      .booking-card.status-new { background: linear-gradient(145deg, #FEF3C7 0%, #FFFFFF 75%); border-color: #D97706; }
+      .status-confirmed .badge-status-tag { background: #16A34A; color: #FFFFFF; }
+      .status-unregistered .badge-status-tag { background: #DC2626; color: #FFFFFF; }
+      .company-title { color: #111114; }
+      .nights-pill { background: #FFFFFF; color: #111114; border-color: rgba(17, 17, 20, 0.16); }
+      .card-meta-row { color: #57534E; }
+      .card-finance-row { border-top-color: rgba(184, 142, 38, 0.25); }
+      .card-finance-chip { background: rgba(255, 255, 255, 0.92); color: #111114; border-color: rgba(17, 17, 20, 0.18); }
+      .card-finance-chip.chip-total { background: #FEF3C7; color: #92400E; border-color: rgba(217, 119, 6, 0.35); }
+      .status-confirmed .card-substatus { color: #15803D; }
+      .status-unregistered .card-substatus { color: #B91C1C; }
+      .status-new .card-substatus { color: #B45309; }
+      .status-unregistered .persian-date-indicator i { color: #DC2626; }
+
+      /* Continuation cells */
+      .continuation-cell.status-confirmed {
+        background: repeating-linear-gradient(45deg, #FFFFFF, #FFFFFF 8px, rgba(22, 163, 74, 0.12) 8px, rgba(22, 163, 74, 0.12) 16px);
+        border-color: #16A34A;
       }
-      .booking-card.status-unregistered {
-        background: linear-gradient(145deg, rgba(239, 68, 68, 0.22), rgba(14, 14, 17, 0.97));
-        border-color: #EF4444;
+      .continuation-cell.status-unregistered {
+        background: repeating-linear-gradient(45deg, #FFFFFF, #FFFFFF 8px, rgba(220, 38, 38, 0.10) 8px, rgba(220, 38, 38, 0.10) 16px);
+        border-color: #DC2626;
       }
-      .booking-card.status-new {
-        background: linear-gradient(145deg, rgba(245, 158, 11, 0.22), rgba(14, 14, 17, 0.97));
-        border-color: #F59E0B;
+      .continuation-cell.status-new {
+        background: repeating-linear-gradient(45deg, #FFFFFF, #FFFFFF 8px, rgba(217, 119, 6, 0.10) 8px, rgba(217, 119, 6, 0.10) 16px);
+        border-color: #D97706;
       }
+      .continuation-cell:hover { filter: brightness(0.98); }
+      .cont-badge { background: #FFFFFF; color: #111114; border: 1px solid rgba(17, 17, 20, 0.15); }
+      .cont-company { color: #111114; }
+      .continuation-cell.status-confirmed .cont-company { color: #15803D; }
+      .continuation-cell.status-unregistered .cont-company { color: #B91C1C; }
+
+      /* Legend */
+      .legend-confirmed { background: #DCFCE7; border-color: #16A34A; }
+      .legend-unregistered { background: #FEE2E2; border-color: #DC2626; }
+      .legend-available { background: #FFFFFF; border: 1px dashed #94A3B8; }
+      .legend-cont { background: repeating-linear-gradient(45deg, #FFFFFF, #FFFFFF 3px, rgba(184, 142, 38, 0.35) 3px, rgba(184, 142, 38, 0.35) 6px); border-color: #B88E26; }
+
+      footer.main-footer { border-top-color: rgba(184, 142, 38, 0.25); color: #57534E; }
+
+      /* Modals */
+      .modal-overlay { background: rgba(17, 17, 20, 0.45); }
       .modal-content {
-        background: #121216;
-        border-color: rgba(212, 175, 55, 0.45);
+        background: #FFFFFF;
+        border-color: rgba(184, 142, 38, 0.5);
+        box-shadow: 0 25px 60px rgba(17, 17, 20, 0.22);
       }
       .modal-header, .modal-footer {
-        background: #0B0B0E;
+        background: #FAF7F0;
+        border-color: rgba(184, 142, 38, 0.25);
       }
+      .modal-header h3 { color: #111114; }
+      .modal-header h3 i { color: #B88E26 !important; }
+      .modal-close-btn:hover { background: #FEF2F2; color: #DC2626; }
+      .form-label { color: #111114; }
       .form-input, .form-select, .form-textarea {
-        background: #08080A;
-        color: #FAF7F0;
-        border-color: rgba(212, 175, 55, 0.36);
+        background: #FFFFFF;
+        color: #111114;
+        border-color: rgba(17, 17, 20, 0.28);
       }
-      .form-select option {
-        background: #111114;
-        color: #FAF7F0;
+      .form-input:focus, .form-select:focus, .form-textarea:focus {
+        border-color: #B88E26;
+        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.18);
       }
-      .filter-select option {
-        background: #111114;
-        color: #F3D882;
+      .meals-box { background: #FAF8F3; border-color: rgba(184, 142, 38, 0.32); }
+      .meal-preset-btn { background: #FFFFFF; border-color: rgba(184, 142, 38, 0.45); color: #111114; }
+      .meal-preset-btn:hover { background: #FAF4E4; border-color: #B88E26; }
+      .meal-preset-btn.active { background: #111114; color: #F3D882; border-color: #D4AF37; box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.22); }
+      .detail-item { border-bottom-color: rgba(184, 142, 38, 0.18); }
+      .report-toolbar, .report-summary-card { background: #FAF8F3; border-color: rgba(184, 142, 38, 0.32); }
+      .report-summary-value { color: #8C6815; }
+      .report-mode-tab { background: #FFFFFF; border-color: rgba(184, 142, 38, 0.45); color: #111114; }
+      .report-mode-tab.active { background: #111114; color: #F3D882; border-color: #D4AF37; }
+      .report-date-panel { border-top-color: rgba(184, 142, 38, 0.25); }
+      .card-pending-chip { background: #FEF3C7; border-color: #D97706; color: #92400E; }
+      .admin-pending-review-box { background: #FFFBEB; border-color: #F59E0B; }
+      .admin-pending-title { color: #B45309; }
+      .admin-pending-diff-row { background: #FEF3C7; color: #111114; }
+      .report-table-wrap { border-color: rgba(184, 142, 38, 0.35); }
+      .report-table thead th { background: #F5EFE0; color: #111114; border-bottom-color: rgba(184, 142, 38, 0.35); }
+      .report-table tbody td { color: #111114; border-bottom-color: rgba(184, 142, 38, 0.16); }
+      .report-table tbody tr:hover { background: #FAF8F3; }
+      .report-table tfoot td { background: #FEF3C7; color: #92400E; border-top-color: #D97706; }
+
+      /* Toasts */
+      .toast-msg { background: #FFFFFF; color: #111114; border-color: #B88E26; box-shadow: 0 10px 30px rgba(17, 17, 20, 0.16); }
+      .toast-msg.toast-error { border-color: #DC2626; }
+
+      /* Back to top */
+      #back-to-top-btn {
+        background: var(--gold-gradient) !important;
+        color: #111114 !important;
+        border-color: #FFFFFF !important;
+        box-shadow: 0 4px 16px rgba(17, 17, 20, 0.25) !important;
       }
-      .date-display-badge input[type="date"]::-webkit-calendar-picker-indicator,
-      .form-input[type="date"]::-webkit-calendar-picker-indicator {
-        filter: invert(0.85) sepia(0.5) saturate(3) hue-rotate(8deg);
-        cursor: pointer;
-      }
-      ::-webkit-scrollbar-track { background: #09090B; }
-      ::-webkit-scrollbar-thumb { background: #9E7823; }
-      ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+
+      ::-webkit-scrollbar-track { background: #F4F1EA; }
+      ::-webkit-scrollbar-thumb { background: #C8A24E; }
+      ::-webkit-scrollbar-thumb:hover { background: #9E7823; }
     }
 
     .print-header, .print-signatures, .report-print-logo, .report-print-hotel-name, .print-header-logo {
       display: none;
     }
 
-    /* Language Switcher Button (Black & Gold) */
+    /* Language Switcher Button (White & Gold/Black) */
     .lang-switch-btn {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      background: rgba(20, 20, 24, 0.95);
-      color: var(--gold-light) !important;
-      border: 1.5px solid rgba(212, 175, 55, 0.6);
+      background: #FFFFFF;
+      color: #111114 !important;
+      border: 1.5px solid rgba(17, 17, 20, 0.45);
       padding: 8px 14px;
       border-radius: var(--radius-md);
       font-family: inherit;
@@ -2212,20 +2492,20 @@
       font-weight: 800;
       cursor: pointer;
       transition: var(--transition);
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 2px 8px rgba(17, 17, 20, 0.08);
     }
     #login-lang-btn {
-      background: #141418;
-      border-color: var(--gold-primary);
-      color: var(--gold-light) !important;
+      background: #111114;
+      border-color: #D4AF37;
+      color: #F3D882 !important;
     }
     #login-lang-btn:hover,
     .lang-switch-btn:hover {
-      background: var(--gold-gradient);
-      color: #050506 !important;
-      border-color: var(--gold-light);
+      background: #111114;
+      color: #F3D882 !important;
+      border-color: #D4AF37;
       transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
+      box-shadow: 0 4px 14px rgba(17, 17, 20, 0.22);
     }
     .lang-switch-btn span,
     .lang-switch-btn i {
@@ -2389,8 +2669,8 @@
 
         <!-- Actions -->
         <div class="header-actions">
-          <button type="button" id="cloud-sync-btn" class="btn-navy" onclick="manualCloudSync()" data-i18n-title="sync_btn_title" title="همگام‌سازی فوری بین تمام دستگاه‌ها" style="border-color: rgba(212, 175, 55, 0.55); background: rgba(212, 175, 55, 0.14);">
-            <i class="fa-solid fa-database" id="cloud-sync-icon" style="color: #D4AF37;"></i>
+          <button type="button" id="cloud-sync-btn" class="btn-navy" onclick="manualCloudSync()" data-i18n-title="sync_btn_title" title="همگام‌سازی فوری بین تمام دستگاه‌ها" style="border-color: rgba(184, 142, 38, 0.55); background: #FAF6EC;">
+            <i class="fa-solid fa-database" id="cloud-sync-icon" style="color: #9E7823;"></i>
             <span id="cloud-sync-text" data-i18n="sync_local">حفظ محلي ✓</span>
           </button>
 
@@ -2732,7 +3012,7 @@
             </div>
             <div>
               <label class="form-label" for="form-checkout-date" data-i18n="form_checkout_label">تاریخ خروج احتمالی</label>
-              <input type="text" id="form-checkout-date" class="form-input" readonly style="opacity: 0.9; background: #1A1A20; color: var(--text-gold);">
+              <input type="text" id="form-checkout-date" class="form-input" readonly style="opacity: 0.92; background: #F4F1EA; color: #111114;">
             </div>
           </div>
 
@@ -4324,31 +4604,31 @@
       if (!btn || !icon || !txt) return;
 
       if (state === 'local') {
-        btn.style.borderColor = 'rgba(212, 175, 55, 0.55)';
-        btn.style.background = 'rgba(212, 175, 55, 0.14)';
+        btn.style.borderColor = 'rgba(184, 142, 38, 0.55)';
+        btn.style.background = '#FAF6EC';
         icon.className = 'fa-solid fa-database';
-        icon.style.color = '#D4AF37';
+        icon.style.color = '#9E7823';
         txt.setAttribute('data-i18n', 'sync_local');
         txt.textContent = t('sync_local');
       } else if (state === 'syncing') {
-        btn.style.borderColor = 'rgba(245, 158, 11, 0.6)';
-        btn.style.background = 'rgba(245, 158, 11, 0.16)';
+        btn.style.borderColor = 'rgba(217, 119, 6, 0.55)';
+        btn.style.background = '#FFFBEB';
         icon.className = 'fa-solid fa-arrows-rotate fa-spin';
-        icon.style.color = '#FBBF24';
+        icon.style.color = '#B45309';
         txt.setAttribute('data-i18n', 'sync_syncing');
         txt.textContent = t('sync_syncing');
       } else if (state === 'error') {
-        btn.style.borderColor = 'rgba(239, 68, 68, 0.6)';
-        btn.style.background = 'rgba(239, 68, 68, 0.16)';
+        btn.style.borderColor = 'rgba(220, 38, 38, 0.55)';
+        btn.style.background = '#FEF2F2';
         icon.className = 'fa-solid fa-cloud-bolt';
-        icon.style.color = '#F87171';
+        icon.style.color = '#DC2626';
         txt.setAttribute('data-i18n', 'sync_error');
         txt.textContent = t('sync_error');
       } else {
-        btn.style.borderColor = 'rgba(16, 185, 129, 0.55)';
-        btn.style.background = 'rgba(16, 185, 129, 0.14)';
+        btn.style.borderColor = 'rgba(22, 163, 74, 0.55)';
+        btn.style.background = '#ECFDF5';
         icon.className = 'fa-solid fa-cloud-arrow-up';
-        icon.style.color = '#10B981';
+        icon.style.color = '#059669';
         txt.setAttribute('data-i18n', 'sync_connected');
         txt.textContent = t('sync_connected');
       }
@@ -6156,7 +6436,7 @@
       }
       html += '</div>';
 
-      html += '<div style="background: rgba(8, 8, 10, 0.78); border: 1px solid var(--gold-border); border-radius: var(--radius-md); padding: 14px;">';
+      html += '<div style="background: #FAF8F3; border: 1px solid var(--gold-border); border-radius: var(--radius-md); padding: 14px;">';
       html += '  <div class="detail-item"><span class="detail-label">' + t('view_bus_num') + '</span><span class="detail-value">' + t('bus_word') + ' ' + booking.busId + '</span></div>';
       html += '  <div class="detail-item"><span class="detail-label">' + t('view_checkin') + '</span><span class="detail-value">' + booking.startDate + ' (' + DateUtils.getDayName(checkinObj) + ')</span></div>';
       html += '  <div class="detail-item"><span class="detail-label">' + t('view_commitment') + '</span><span class="detail-value" style="color: var(--gold-bright);">' + (booking.persianDate || '---') + ' (' + JalaliCalendar.formatDetailed(checkinObj) + ')</span></div>';
