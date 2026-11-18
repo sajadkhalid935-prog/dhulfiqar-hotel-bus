@@ -4060,7 +4060,7 @@
     };
 
     const CLOUD_SYNC_CONFIG = {
-      GOOGLE_SCRIPT_URL: '',
+      GOOGLE_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbxuudHGgCywrX4k5_IP0CSAJbB95ahsUoctV1kBXD8sIJePumJ3wR730eWoiCgWZB_fug/exec',
       DEVICE_ID: 'dev_' + Math.random().toString(36).substring(2, 10) + '_' + Date.now()
     };
 
@@ -7458,7 +7458,7 @@
         document.getElementById('settings-login-username').value = AppState.loginUsername || 'iraq';
         document.getElementById('settings-login-password').value = AppState.loginPassword || '313';
         var cloudInput = document.getElementById('settings-cloud-url');
-        if (cloudInput) cloudInput.value = AppState.cloudScriptUrl || '';
+        if (cloudInput) cloudInput.value = getActiveCloudUrl();
         openModal('admin-settings-modal');
       } else {
         err.style.display = 'block';
