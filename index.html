@@ -2504,7 +2504,17 @@
       .meal-preset-btn { background: #086778; border-color: rgba(244, 206, 106, 0.50); color: #FFFFFF; }
       .meal-preset-btn:hover { background: #0F96AA; border-color: #FFE291; color: #FFFFFF; }
       .meal-preset-btn.active { background: var(--gold-gradient); color: #053A44; border-color: #FFE494; box-shadow: 0 0 0 2px rgba(244, 206, 106, 0.35); }
-      .detail-item { border-bottom-color: rgba(244, 206, 106, 0.25); }
+      .detail-item { border-bottom-color: rgba(17, 17, 20, 0.14); }
+      .detail-card-box {
+        background: #FFFFFF !important;
+        border: 1.5px solid #F4CE6A !important;
+        border-radius: var(--radius-md);
+        padding: 14px;
+        color: #111114;
+      }
+      .detail-card-box .detail-label { color: #1E293B !important; font-weight: 700; }
+      .detail-card-box .detail-label i { color: #9A6700 !important; }
+      .detail-card-box .detail-value { color: #111114 !important; font-weight: 800; }
       .report-toolbar, .report-summary-card { background: #054552; border-color: rgba(244, 206, 106, 0.45); }
       .report-summary-value { color: #F4CE6A; }
       .report-mode-tab { background: #086778; border-color: rgba(244, 206, 106, 0.50); color: #FFFFFF; }
@@ -6612,49 +6622,49 @@
       }
       html += '</div>';
 
-      html += '<div style="background: #FAF8F3; border: 1px solid var(--gold-border); border-radius: var(--radius-md); padding: 14px;">';
+      html += '<div class="detail-card-box">';
       html += '  <div class="detail-item"><span class="detail-label">' + t('view_bus_num') + '</span><span class="detail-value">' + t('bus_word') + ' ' + booking.busId + '</span></div>';
       html += '  <div class="detail-item"><span class="detail-label">' + t('view_checkin') + '</span><span class="detail-value">' + booking.startDate + ' (' + DateUtils.getDayName(checkinObj) + ')</span></div>';
-      html += '  <div class="detail-item"><span class="detail-label">' + t('view_commitment') + '</span><span class="detail-value" style="color: var(--gold-bright);">' + (booking.persianDate || '---') + ' (' + JalaliCalendar.formatDetailed(checkinObj) + ')</span></div>';
+      html += '  <div class="detail-item"><span class="detail-label">' + t('view_commitment') + '</span><span class="detail-value">' + (booking.persianDate || '---') + ' (' + JalaliCalendar.formatDetailed(checkinObj) + ')</span></div>';
       html += '  <div class="detail-item"><span class="detail-label">' + t('view_duration') + '</span><span class="detail-value">' + booking.nights + t('view_consecutive_nights') + '</span></div>';
       html += '  <div class="detail-item"><span class="detail-label">' + t('view_checkout') + '</span><span class="detail-value">' + checkoutDateStr + ' (' + DateUtils.getDayName(checkoutObj) + ')</span></div>';
       if (booking.iraqiCompany) {
-        html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-building" style="color:var(--gold-primary)"></i> ' + t('view_iraqi_company') + '</span><span class="detail-value" style="color: var(--gold-light); font-weight: 700;">' + escapeHtml(booking.iraqiCompany) + '</span></div>';
+        html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-building"></i> ' + t('view_iraqi_company') + '</span><span class="detail-value" style="font-weight: 800;">' + escapeHtml(booking.iraqiCompany) + '</span></div>';
       }
       if (AppState.isAdmin) {
         if (booking.badgeNumber) {
-          html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-id-badge" style="color:var(--gold-primary)"></i> ' + t('view_badge_number') + '</span><span class="detail-value">' + escapeHtml(booking.badgeNumber) + '</span></div>';
+          html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-id-badge"></i> ' + t('view_badge_number') + '</span><span class="detail-value">' + escapeHtml(booking.badgeNumber) + '</span></div>';
         }
         if (hasValue(booking.visitorsCount)) {
-          html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-users" style="color:var(--gold-primary)"></i> ' + t('view_visitors_count') + '</span><span class="detail-value">' + formatBookingNumber(booking.visitorsCount) + '</span></div>';
+          html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-users"></i> ' + t('view_visitors_count') + '</span><span class="detail-value">' + formatBookingNumber(booking.visitorsCount) + '</span></div>';
         }
         if (hasValue(booking.personPrice)) {
-          html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-dollar-sign" style="color:var(--gold-primary)"></i> ' + t('view_person_price') + '</span><span class="detail-value">' + formatBookingNumber(booking.personPrice) + ' $</span></div>';
+          html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-dollar-sign"></i> ' + t('view_person_price') + '</span><span class="detail-value">' + formatBookingNumber(booking.personPrice) + ' $</span></div>';
         }
         if (hasValue(booking.totalAmount)) {
-          html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-calculator" style="color:var(--gold-primary)"></i> ' + t('view_total_amount') + '</span><span class="detail-value" style="color: var(--gold-bright); font-weight: 800;">' + formatBookingNumber(booking.totalAmount) + ' $</span></div>';
+          html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-calculator"></i> ' + t('view_total_amount') + '</span><span class="detail-value" style="font-weight: 800;">' + formatBookingNumber(booking.totalAmount) + ' $</span></div>';
         }
         if (booking.mealType) {
-          html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-utensils" style="color:var(--gold-primary)"></i> ' + t('view_meal_type') + '</span><span class="detail-value">' + escapeHtml(getMealTypeLabel(booking.mealType)) + '</span></div>';
+          html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-utensils"></i> ' + t('view_meal_type') + '</span><span class="detail-value">' + escapeHtml(getMealTypeLabel(booking.mealType)) + '</span></div>';
         }
         if (hasValue(booking.mealCount)) {
-          html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-bowl-food" style="color:var(--gold-primary)"></i> ' + t('view_meal_count') + '</span><span class="detail-value">' + formatBookingNumber(booking.mealCount) + '</span></div>';
+          html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-bowl-food"></i> ' + t('view_meal_count') + '</span><span class="detail-value">' + formatBookingNumber(booking.mealCount) + '</span></div>';
         }
         if (hasValue(booking.mealVisitorsCount)) {
-          html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-users" style="color:var(--gold-primary)"></i> ' + t('view_meal_visitors_count') + '</span><span class="detail-value">' + formatBookingNumber(booking.mealVisitorsCount) + '</span></div>';
+          html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-users"></i> ' + t('view_meal_visitors_count') + '</span><span class="detail-value">' + formatBookingNumber(booking.mealVisitorsCount) + '</span></div>';
         }
         if (hasValue(booking.mealPrice)) {
-          html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-dollar-sign" style="color:var(--gold-primary)"></i> ' + t('view_meal_price') + '</span><span class="detail-value">' + formatBookingNumber(booking.mealPrice) + ' $</span></div>';
+          html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-dollar-sign"></i> ' + t('view_meal_price') + '</span><span class="detail-value">' + formatBookingNumber(booking.mealPrice) + ' $</span></div>';
         }
         if (hasValue(booking.mealTotal)) {
-          html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-calculator" style="color:var(--gold-primary)"></i> ' + t('view_meal_total') + '</span><span class="detail-value" style="color: var(--gold-bright); font-weight: 800;">' + formatBookingNumber(booking.mealTotal) + ' $</span></div>';
+          html += '  <div class="detail-item"><span class="detail-label"><i class="fa-solid fa-calculator"></i> ' + t('view_meal_total') + '</span><span class="detail-value" style="font-weight: 800;">' + formatBookingNumber(booking.mealTotal) + ' $</span></div>';
         }
       }
       if (booking.subStatus) {
         html += '  <div class="detail-item"><span class="detail-label">' + t('view_substatus') + '</span><span class="detail-value">' + escapeHtml(translateSubStatus(booking.subStatus, booking.status)) + '</span></div>';
       }
       if (booking.notes) {
-        html += '  <div class="detail-item" style="flex-direction: column; align-items: flex-start; gap: 4px;"><span class="detail-label">' + t('view_notes') + '</span><span class="detail-value" style="font-weight: 500; font-size: 13px; color: var(--text-muted);">' + escapeHtml(booking.notes) + '</span></div>';
+        html += '  <div class="detail-item" style="flex-direction: column; align-items: flex-start; gap: 4px;"><span class="detail-label">' + t('view_notes') + '</span><span class="detail-value" style="font-weight: 600; font-size: 13px;">' + escapeHtml(booking.notes) + '</span></div>';
       }
       html += '</div>';
 
